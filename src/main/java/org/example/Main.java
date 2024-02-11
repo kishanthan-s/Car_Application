@@ -34,6 +34,7 @@ public class Main {
                 break;
             case 2:
                 System.out.println("Welcome to Delete a Car");
+                deletecar();
                 break;
             case 3:
                 System.out.println("Welcome to Insert Round Details");
@@ -100,6 +101,16 @@ public class Main {
         } catch (IOException ioException) {
             ioException.printStackTrace();
         }
+    }
+
+    private static void deletecar(){
+        System.out.println("Enter the car number");
+        Scanner scanner=new Scanner(System.in);
+        int num=scanner.nextInt();
+        QuickStart quickStart=new QuickStart();
+        quickStart.deletecar(num);
+
+
     }
 
 
