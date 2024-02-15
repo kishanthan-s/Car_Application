@@ -20,40 +20,38 @@ import static org.bson.codecs.configuration.CodecRegistries.fromRegistries;
 
 
 public class QuickStart {
+    String uri = "mongodb+srv://kishanthan:486426%40Sk5@cluster0.nvw26ui.mongodb.net/?retryWrites=true&w=majority";
+    CodecProvider pojoCodecProvider = PojoCodecProvider.builder().automatic(true).build();
+    CodecRegistry pojoCodecRegistry = fromRegistries(getDefaultCodecRegistry(), fromProviders(pojoCodecProvider));
+    MongoClient mongoClient = MongoClients.create(uri);
+    MongoDatabase database = mongoClient.getDatabase("sample_pojos").withCodecRegistry(pojoCodecRegistry);
+    MongoCollection<Car> collection = database.getCollection("Car", Car.class);
+
+    public void initial_setup() {
+
+    }
 
     public void connect(Car car) {
         // Replace the placeholder with your MongoDB deployment's connection string
-        String uri = "mongodb+srv://kishanthan:486426%40Sk5@cluster0.nvw26ui.mongodb.net/?retryWrites=true&w=majority";
-        CodecProvider pojoCodecProvider = PojoCodecProvider.builder().automatic(true).build();
-        CodecRegistry pojoCodecRegistry = fromRegistries(getDefaultCodecRegistry(), fromProviders(pojoCodecProvider));
-        try (MongoClient mongoClient = MongoClients.create(uri)) {
-            ;
-            MongoDatabase database = mongoClient.getDatabase("sample_pojos").withCodecRegistry(pojoCodecRegistry);
-            MongoCollection<Car> collection = database.getCollection("Car", Car.class);
+        try {
             collection.insertOne(car);
+            
+        } catch (Exception e) {
+            System.out.println(e);
         }
-//        try (MongoClient mongoClient = MongoClients.create(uri)) {
-//            MongoDatabase database = mongoClient.getDatabase("sample_mflix");
-//            MongoCollection<Document> collection = database.getCollection("movies");
-//
-//            Document document = new Document(car);
-//
-//            // Insert document into collection
-//            collection.insertOne(document);
-//
-//
-//        }
+
+
     }
 
+
     public void deletecar(int num) {
-        String uri = "mongodb+srv://kishanthan:486426%40Sk5@cluster0.nvw26ui.mongodb.net/?retryWrites=true&w=majority";
-        CodecProvider pojoCodecProvider = PojoCodecProvider.builder().automatic(true).build();
-        CodecRegistry pojoCodecRegistry = fromRegistries(getDefaultCodecRegistry(), fromProviders(pojoCodecProvider));
-        try (MongoClient mongoClient = MongoClients.create(uri)) {
-            MongoDatabase database = mongoClient.getDatabase("sample_pojos").withCodecRegistry(pojoCodecRegistry);
-            MongoCollection<Car> collection = database.getCollection("Car", Car.class);
+
+        try {
             collection.deleteOne(Filters.eq("unique_number", num));
+        } catch (Exception e) {
+            System.out.println(e);
         }
+
 
     }
 }
