@@ -9,3 +9,6 @@ Unique Number: 11, Brand: 11, Sponsor: 11, Driver: Name: 1212, NIC: 12121, Age: 
 Unique Number: 1234, Brand: kss, Sponsor: krihs, Driver: Name: sam, NIC: 9484, Age: 11
 Unique Number: 22, Brand: 11, Sponsor: 22, Driver: Name: 33, NIC: 33, Age: 11
 Unique Number: 5353, Brand: Toyata, Sponsor: Kishanthan, Driver: Name: Sampavi, NIC: 973536363V, Age: 24
+Unique Number: 2212, Brand: toyata, Sponsor: sampavi, Driver: Name: kishanthan, NIC: 74747473, Age: 34
+Unique Number: 1997, Brand: toyata, Sponsor: kishanthan, Driver: Name: smapavi, NIC: 849393, Age: 23
+Unique Number: 333, Brand: toyata, Sponsor: toyata, Driver: Name: fayaz, NIC: 74833, Age: 24

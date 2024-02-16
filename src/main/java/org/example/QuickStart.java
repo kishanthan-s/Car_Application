@@ -23,9 +23,7 @@ public class QuickStart {
     String uri = "mongodb+srv://kishanthan:486426%40Sk5@cluster0.nvw26ui.mongodb.net/?retryWrites=true&w=majority";
     CodecProvider pojoCodecProvider = PojoCodecProvider.builder().automatic(true).build();
     CodecRegistry pojoCodecRegistry = fromRegistries(getDefaultCodecRegistry(), fromProviders(pojoCodecProvider));
-    MongoClient mongoClient = MongoClients.create(uri);
-    MongoDatabase database = mongoClient.getDatabase("sample_pojos").withCodecRegistry(pojoCodecRegistry);
-    MongoCollection<Car> collection = database.getCollection("Car", Car.class);
+
 
     public void initial_setup() {
 
@@ -33,9 +31,12 @@ public class QuickStart {
 
     public void connect(Car car) {
         // Replace the placeholder with your MongoDB deployment's connection string
-        try {
+        try(MongoClient mongoClient = MongoClients.create(uri)) {
+
+            MongoDatabase database = mongoClient.getDatabase("sample_pojos").withCodecRegistry(pojoCodecRegistry);
+            MongoCollection<Car> collection = database.getCollection("Car", Car.class);
             collection.insertOne(car);
-            
+
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -46,7 +47,9 @@ public class QuickStart {
 
     public void deletecar(int num) {
 
-        try {
+        try (MongoClient mongoClient = MongoClients.create(uri)){
+            MongoDatabase database = mongoClient.getDatabase("sample_pojos").withCodecRegistry(pojoCodecRegistry);
+            MongoCollection<Car> collection = database.getCollection("Car", Car.class);
             collection.deleteOne(Filters.eq("unique_number", num));
         } catch (Exception e) {
             System.out.println(e);
