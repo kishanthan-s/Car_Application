@@ -89,7 +89,7 @@ public class Main {
         car.setDriver_details(driver);
 
         saving(car);
-        QuickStart quickStart=new QuickStart();
+        QuickStart quickStart = new QuickStart();
         quickStart.connect(car);
 
     }
@@ -106,21 +106,41 @@ public class Main {
         }
     }
 
-    private static void deletecar(){
+    private static void deletecar() {
         System.out.println("Enter the car number");
-        Scanner scanner=new Scanner(System.in);
-        int num=scanner.nextInt();
-        QuickStart quickStart=new QuickStart();
+        Scanner scanner = new Scanner(System.in);
+        int num = scanner.nextInt();
+        QuickStart quickStart = new QuickStart();
         quickStart.deletecar(num);
 
 
     }
 
-    private static void insertrounddetails(){
+    private static void insertrounddetails() {
+
         System.out.println("Enter Round Details");
-        InsertRoundDetails insertDetails=new InsertRoundDetails();
-        Scanner scanner=new Scanner(System.in);
+
+        InsertRoundDetails insertDetails = new InsertRoundDetails();
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the round: ");
+
         insertDetails.setRound_num(scanner.nextInt());
+
+        scanner.nextLine();
+
+        System.out.print("Enter the car number: ");
+
+        insertDetails.setCar_number(scanner.nextLine());
+
+        System.out.print("Enter the car Model: ");
+
+        insertDetails.setModel(scanner.nextLine());
+
+        System.out.print("Enter the Winning Place: ");
+
+        insertDetails.setWinning_place(scanner.nextLine());
 
 
     }
