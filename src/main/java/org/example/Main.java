@@ -44,9 +44,11 @@ public class Main {
                 break;
             case 4:
                 System.out.println("Welcome to Find Out Winners");
+                FindWinner();
                 break;
             case 5:
                 System.out.println("Welcome to Search a Car");
+                SearchCar();
                 break;
             default:
                 System.out.println("Enter a valid number");
@@ -143,6 +145,16 @@ public class Main {
         insertDetails.setWinning_place(scanner.nextLine());
 
 
+    }
+
+    public static void FindWinner(){
+        System.out.println("These are the winners");
+    }
+
+    public static void SearchCar(){
+        System.out.print("Enter the car number: ");
+        Scanner scanner=new Scanner(System.in);
+        String carnum= scanner.nextLine();
     }
 
 
