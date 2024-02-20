@@ -1,5 +1,7 @@
 package org.example;
 
+import ch.qos.logback.core.util.SystemInfo;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
@@ -38,6 +40,7 @@ public class Main {
                 break;
             case 3:
                 System.out.println("Welcome to Insert Round Details");
+                insertrounddetails();
                 break;
             case 4:
                 System.out.println("Welcome to Find Out Winners");
@@ -109,6 +112,15 @@ public class Main {
         int num=scanner.nextInt();
         QuickStart quickStart=new QuickStart();
         quickStart.deletecar(num);
+
+
+    }
+
+    private static void insertrounddetails(){
+        System.out.println("Enter Round Details");
+        InsertRoundDetails insertDetails=new InsertRoundDetails();
+        Scanner scanner=new Scanner(System.in);
+        insertDetails.setRound_num(scanner.nextInt());
 
 
     }
